@@ -12,10 +12,10 @@ def create_song(body):
     data.update(request_body)
     try:
         song.insert_one(dict(data))
-        data_response = {
-            "status": "Success",
-            "data": serializeList(song.find())
-        }
-        return data_response
+        data_response = serializeList(song.find())
+        if data_response:
+            return data_response
+        else:
+            return False
     except:
-         return {"status": "Failed", "Error": "Error at create song"}
+        return False
