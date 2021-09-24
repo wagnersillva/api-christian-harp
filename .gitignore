@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 #credentials
-mongoDbCredentials.json
+./mongoDbCredentials.json
