@@ -130,4 +130,4 @@ dmypy.json
 
 #credentials
 
-mongoDbCredentials.json
+mongo_Db_Credentials.json

@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import json
 
-with open('mongoDbCredentials.json') as jsonFile:
+with open('mongo_Db_Credentials.json') as jsonFile:
     jsonObject = json.load(jsonFile)
     jsonFile.close()
 
