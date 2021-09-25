@@ -3,8 +3,9 @@ from database.mongodb import dataBase
 from typing import Optional
 
 db = dataBase()
-harp = db.harp
-song = harp.song
+letters = db.letters
+song = letters.song
+
 
 
 def find_one_song(key):

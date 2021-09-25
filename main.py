@@ -7,7 +7,7 @@ from typing import Optional
 
 app = FastAPI()
 
-@app.get("/harp/{song_key}")
+@app.get("/{song_key}")
 async def find(song_key: int):
     if song_key:
         song = find_one_song(song_key)
@@ -16,7 +16,7 @@ async def find(song_key: int):
     else:
         return {"Status": "false", "data" :"No song found"}
         
-@app.get("/harp/")
+@app.get("/")
 async def find(limit: Optional[int] = None):
     songs = find_all_songs(limit)
     if songs:
@@ -24,10 +24,10 @@ async def find(limit: Optional[int] = None):
     else:
         return {"Status": "false", "data" :"No song found"}
 
-@app.post("/harp/create/")
+@app.post("/create/")
 async def create(body: Song):
     songs = create_song(body)
     if songs:
-        return {"Status" : "true", "data" : songs }
+        return {"status" : songs['status'], "data" : songs['data'] }
     else:
-        return {"Status": "false", "data" :"There was a mistake in trying to add music"}
+        return {"status":  False, "data" : 'An error has occurred' }
